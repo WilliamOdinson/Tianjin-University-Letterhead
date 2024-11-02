@@ -1,0 +1,40 @@
+\documentclass{ctexart}
+\usepackage[letterpaper, , headheight = 4cm, top = 1cm, right = 2cm, left = 2cm, includehead]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{graphbox}
+\usepackage{multirow, array}
+\definecolor{main}{HTML}{205083}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\fancyhead[C]{%
+\vspace*{-.2cm}%
+  \begin{minipage}{.99\textwidth}%
+    \centering%
+    \tabcolsep=0pt%
+    \zihao{-4}\bfseries\color{main}
+    \begin{tabular}{m{.3\textwidth}<{\centering} m{.3\textwidth}<{\centering}m{.3\textwidth}<{\centering}}
+      \includegraphics[align = c, width = 5em]{./images/logo.pdf} & \multirow{2}{*}{\includegraphics[width = .15\textwidth, align = c]{./images/TDLogo.eps}} & TianJin University \\[2cm]
+      中国\quad 天津 300072 & & TianJin 300072, China
+    \end{tabular}
+  \end{minipage}
+}
+\renewcommand{\headrule}{%
+  \color{main}\rule[0pt]{\textwidth}{1pt}
+}
+
+\usepackage{everypage-1x}
+\AddEverypageHook{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[opacity = .1, scale = 1.5] at (current page.center) {\includegraphics{./images/TDLogo.eps}};
+  \end{tikzpicture}
+}
+
+\begin{document}
+    To Whom It May Concern, 
+    \newpage
+    
+\end{document}
