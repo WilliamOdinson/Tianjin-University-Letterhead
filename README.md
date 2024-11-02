@@ -6,7 +6,7 @@
 
 This project offers a LaTeX letterhead template designed for Tianjin University, perfect for creating professional documents such as recommendation letters.
 
-![Template Preview](./main.png){: style="zoom:50%;" }
+<img src="./main.jpg" alt="Template Preview"/>
 
 ### Requirements
 
@@ -27,8 +27,6 @@ Future enhancements include additional recommendation letter templates.
 ## 中文
 
 此项目提供一个为天津大学设计的 LaTeX 信头模板，适用于创建专业文档，如推荐信。
-
-![模板预览](./main.png){: style="zoom:50%;" }
 
 ### 要求
 
