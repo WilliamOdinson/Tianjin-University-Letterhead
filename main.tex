@@ -1,13 +1,22 @@
-\documentclass{ctexart}
-\usepackage[letterpaper, , headheight = 4cm, top = 1cm, right = 2cm, left = 2cm, includehead]{geometry}
-\usepackage{fancyhdr}
+\documentclass[12pt]{TJUletter}
+
+\usepackage[letterpaper, headheight=4cm, top=1cm, right=2cm, left=2cm, includehead]{geometry}
+\usepackage{fontspec}
 \usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{ctex}
 \usepackage{graphbox}
 \usepackage{multirow, array}
+\usepackage{everypage-1x}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{eso-pic}
+\usepackage{datetime}
 \definecolor{main}{HTML}{205083}
+\definecolor{TJUblue}{RGB}{27, 69, 130}
 
 \pagestyle{fancy}
-
 \fancyhf{}
 
 \fancyhead[C]{%
@@ -15,9 +24,9 @@
   \begin{minipage}{.99\textwidth}%
     \centering%
     \tabcolsep=0pt%
-    \zihao{-4}\bfseries\color{main}
-    \begin{tabular}{m{.3\textwidth}<{\centering} m{.3\textwidth}<{\centering}m{.3\textwidth}<{\centering}}
-      \includegraphics[align = c, width = 5em]{./images/logo.pdf} & \multirow{2}{*}{\includegraphics[width = .15\textwidth, align = c]{./images/TDLogo.eps}} & TianJin University \\[2cm]
+    \bfseries\color{main}
+    \begin{tabular}{m{.3\textwidth}<{\centering} m{.3\textwidth}<{\centering} m{.3\textwidth}<{\centering}}
+      \includegraphics[align=c, width=5em]{./images/logo.pdf} & \multirow{2}{*}{\includegraphics[width=.15\textwidth, align=c]{./images/TDLogo.eps}} & TianJin University \\[2cm]
       中国\quad 天津 300072 & & TianJin 300072, China
     \end{tabular}
   \end{minipage}
@@ -26,15 +35,48 @@
   \color{main}\rule[0pt]{\textwidth}{1pt}
 }
 
-\usepackage{everypage-1x}
 \AddEverypageHook{%
   \begin{tikzpicture}[remember picture, overlay]
-    \node[opacity = .1, scale = 1.5] at (current page.center) {\includegraphics{./images/TDLogo.eps}};
+    \node[opacity=.1, scale=1.5] at (current page.center) {\includegraphics{./images/TDLogo.eps}};
   \end{tikzpicture}
 }
 
+\makeatletter
+\renewcommand{\ps@firstpage}{\pagestyle{fancy}}
+\makeatother
+
+%%%%%%%%%%% Put Personal Information Here %%%%%%%%%%%
+
+\def\name{Name,\\
+Position,\\
+College/School Name, \\
+Tianjin University \\
++86 Phonenumber  \\
+@tju.edu.cn \\
+}
+
+% Signature including an image; adjust the file name and scaling as needed
+\signature{ 
+\vspace{-12mm}\includegraphics[scale=0.40]{signature.pdf}\\\vspace{-2mm}
+\name}
+
+% Set date
+% \date{\vspace{10mm} \today}
+
 \begin{document}
-    To Whom It May Concern, 
-    \newpage
-    
+
+\begin{letter}{
+		\textbf{Tianjin University}\\
+		\textbf{No.\{Number\} Teaching Building}, No. 92 Weijin Road, Nankai District \\
+		Tianjin \quad 300072
+	}
+
+	\opening{To Whom It May Concern,}
+
+    \lipsum[1-8]
+
+	\closing{Yours Sincerely,}
+
+\end{letter}
+
 \end{document}
